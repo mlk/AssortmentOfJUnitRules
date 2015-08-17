@@ -8,11 +8,15 @@ import de.flapdoodle.embed.mongo.distribution.Version;
 import de.flapdoodle.embed.process.runtime.Network;
 import org.junit.rules.ExternalResource;
 
+/** Utilizing flapdoodle.embed.mongo, downloads Mongo and runs an instance per test.
+ * For an example of it in action see the <a href="httphttp://tinyurl.com/mongorule">tests for this class.</a>
+ */
 public class MongoRule extends ExternalResource {
     private MongodExecutable mongodExe;
     private MongodProcess mongod;
     private final int port;
 
+    /** @param port The port to run Mongo DB on. Recommendation: Don't use a standard Mongo port  */
     public MongoRule(int port) {
         this.port = port;
     }

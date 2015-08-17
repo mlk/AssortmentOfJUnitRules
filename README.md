@@ -7,16 +7,29 @@ The package has only one hard dependency - JUnit. All sub-rules will expect thei
 
 Each rule has a JUnit test which also serves as an example. 
 
+## How to use
+
+Utilizing your dependency framework of choice (Maven shown below) include both it and the rules dependencies
+in your application.   
+
+```
+<dependency>
+  <groupId>com.github.mlk</groupId>
+  <artifactId>assortmentofjunitrules</artifactId>
+  <version>1.1</version>
+</dependency>
+```
+
 ## SparkRule
 
 Starts up and shuts down a local Spark context between JUnit tests. Required spark-core.
 
+Maven example:
 ```
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_2.11</artifactId>
             <version>1.4.1</version>
-            <scope>provided</scope>
         </dependency>
 ```
 
@@ -24,6 +37,7 @@ Starts up and shuts down a local Spark context between JUnit tests. Required spa
 
 Starts up and shuts down a local Hadoop DFS cluster between JUnit tests. Requires hadoop-minicluster.
 
+Maven example:
 ```
         <dependency>
             <groupId>org.apache.hadoop</groupId>
@@ -43,6 +57,7 @@ Starts up and shuts down a local Hadoop DFS cluster between JUnit tests. Require
 Uses [Flapdoodles' Embed Mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo) to start up a Mongo
 server before each test and shut it down after each test. Requires de.flapdoodle.embed
 
+Maven Example:
 ```
         <dependency>
             <groupId>de.flapdoodle.embed</groupId>
