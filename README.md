@@ -1,1 +1,53 @@
 # AssortmentOfJUnitRules
+
+This is a small selection of useful (for me) rules for building integration tests with Hadoop, Spark and Mongo. 
+These rules can be used together to start up a mini environment required for a test.  
+
+The package has only one hard dependency - JUnit. All sub-rules will expect their requirements to be provided. 
+
+Each rule has a JUnit test which also serves as an example. 
+
+## SparkRule
+
+Starts up and shuts down a local Spark context between JUnit tests. Required spark-core.
+
+```
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.11</artifactId>
+            <version>1.4.1</version>
+            <scope>provided</scope>
+        </dependency>
+```
+
+## HadoopDFSRule
+
+Starts up and shuts down a local Hadoop DFS cluster between JUnit tests. Requires hadoop-minicluster.
+
+```
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>2.6.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-minicluster</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+```
+
+## MongoRule
+
+Uses [Flapdoodles' Embed Mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo) to start up a Mongo
+server before each test and shut it down after each test. Requires de.flapdoodle.embed
+
+```
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <version>1.28</version>
+            <scope>provided</scope>
+        </dependency>
+```

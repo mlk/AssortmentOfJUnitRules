@@ -1,0 +1,10 @@
+# Idea
+.idea/
+assortmentofjunitrules.iml
+
+# Maven
+build/
+target/
+
+# Temp Files
+*~
