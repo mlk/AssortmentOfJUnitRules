@@ -10,7 +10,7 @@ Each rule has a JUnit test which also serves as an example.
 ## How to use
 
 Utilizing your dependency framework of choice (Maven shown below) include both it and the rules dependencies
-in your application.   
+in your applications build system.
 
 ```
 <dependency>
@@ -22,7 +22,7 @@ in your application.
 
 ## SparkRule
 
-Starts up and shuts down a local Spark context between JUnit tests. Required spark-core.
+Starts up and shuts down a local Spark context between JUnit tests. Required [spark-core](http://mvnrepository.com/artifact/org.apache.spark).
 
 Maven example:
 ```
@@ -35,7 +35,7 @@ Maven example:
 
 ## HadoopDFSRule
 
-Starts up and shuts down a local Hadoop DFS cluster between JUnit tests. Requires hadoop-minicluster.
+Starts up and shuts down a local Hadoop DFS cluster between JUnit tests. Requires [hadoop-minicluster](http://mvnrepository.com/artifact/org.apache.hadoop/hadoop-minicluster).
 
 Maven example:
 ```
@@ -55,7 +55,7 @@ Maven example:
 ## MongoRule
 
 Uses [Flapdoodles' Embed Mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo) to start up a Mongo
-server before each test and shut it down after each test. Requires de.flapdoodle.embed
+server before each test and shut it down after each test. Requires [de.flapdoodle.embed.mongo](http://mvnrepository.com/artifact/de.flapdoodle.embed/de.flapdoodle.embed.mongo)
 
 Maven Example:
 ```
