@@ -33,6 +33,8 @@ Maven example:
         </dependency>
 ```
 
+[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestSparkRule.java)
+
 ## HadoopDFSRule
 
 Starts up and shuts down a local Hadoop DFS cluster between JUnit tests. Requires [hadoop-minicluster](http://mvnrepository.com/artifact/org.apache.hadoop/hadoop-minicluster).
@@ -52,6 +54,8 @@ Maven example:
         </dependency>
 ```
 
+[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestHadoopRule.java)
+
 ## MongoRule
 
 Uses [Flapdoodles' Embed Mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo) to start up a Mongo
@@ -66,3 +70,5 @@ Maven Example:
             <scope>provided</scope>
         </dependency>
 ```
+
+[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestMongoRule.java)
