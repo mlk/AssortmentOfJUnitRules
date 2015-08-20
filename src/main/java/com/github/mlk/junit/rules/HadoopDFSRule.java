@@ -13,14 +13,23 @@ import java.io.IOException;
  * For an example of it in action see the <a href="http://tinyurl.com/hadooprule">tests for this class.</a>
  */
 public class HadoopDFSRule extends ExternalResource {
-    private HdfsConfiguration conf = new HdfsConfiguration();
+    private HdfsConfiguration conf;
     private MiniDFSCluster cluster;
 
     private FileSystem mfs;
     private FileContext mfc;
 
+    protected HdfsConfiguration createConfiguration() {
+        return new HdfsConfiguration();
+    }
+
+    protected HdfsConfiguration getConfiguration() {
+        return conf;
+    }
+
     @Override
     protected void before() throws Throwable {
+        conf = createConfiguration();
         cluster = new MiniDFSCluster.Builder(conf).numDataNodes(3).build();
         cluster.waitActive();
         mfs = cluster.getFileSystem();
