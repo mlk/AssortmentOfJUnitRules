@@ -23,7 +23,7 @@ public class HadoopDFSRule extends ExternalResource {
         return new HdfsConfiguration();
     }
 
-    protected HdfsConfiguration getConfiguration() {
+    public HdfsConfiguration getConfiguration() {
         return conf;
     }
 
