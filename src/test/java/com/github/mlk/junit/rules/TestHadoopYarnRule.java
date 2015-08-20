@@ -14,19 +14,19 @@ public class TestHadoopYarnRule {
     @Rule
     public HadoopYarnRule subject = new HadoopYarnRule("test-hadoop");
 
+    /** "Hello World" YARN job that counts the number of each word in a text file. */
     @Test
-    public void whenFileExistsThenReturnTrue() throws Exception {
+    public void helloWorld() throws Exception {
         subject.copyResource("/hello.txt", "/testfile.txt");
 
         BasicTestJob job = new BasicTestJob();
         job.setConf(subject.getConfiguration());
         int exitCode = job.run("/hello.txt", "/count");
-        System.out.println(exitCode);
 
+        assertThat(exitCode, is(0));
         assertThat(subject.exist("/count/_SUCCESS"), is(true));
-        String output = subject.read("/count/part-r-00000");
-        System.out.println(output);
-        Map<String, Integer> map = toMap(output);
+
+        Map<String, Integer> map = toMap(subject.read("/count/part-r-00000"));
         assertThat(map.get("one"), is(1));
         assertThat(map.get("two"), is(2));
         assertThat(map.get("three"), is(3));

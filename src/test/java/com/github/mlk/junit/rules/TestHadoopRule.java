@@ -15,6 +15,7 @@ public class TestHadoopRule {
     @Rule
     public HadoopDFSRule subject = new HadoopDFSRule();
 
+    /** "Hello World" example that reads in a text file using a class that has no knowledge of the JUnit rule. */
     @Test
     public void helloWorld() throws IOException {
         subject.copyResource("/new_file.txt", "/testfile.txt");

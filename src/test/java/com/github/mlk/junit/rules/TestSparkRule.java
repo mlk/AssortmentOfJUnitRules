@@ -16,9 +16,7 @@ public class TestSparkRule {
     @Rule
     public SparkRule subject = new SparkRule();
 
-    /**
-     * "Hello World" spark job that counts the number of each word in a word list.
-     */
+    /** "Hello World" spark job that counts the number of each word in a word list. */
     @Test
     public void helloWorld() {
         JavaSparkContext sc = subject.getContext();

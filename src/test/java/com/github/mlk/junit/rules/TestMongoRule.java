@@ -13,6 +13,7 @@ public class TestMongoRule {
     @Rule
     public MongoRule subject = new MongoRule(12345);
 
+    /** "Hello world" example that creates a collection, inserts an item and verifies the item exists. */
     @Test
     public void helloWorld() {
         MongoClient mongoClient = new MongoClient("localhost", 12345);
