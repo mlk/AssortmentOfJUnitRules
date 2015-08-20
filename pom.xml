@@ -6,7 +6,7 @@
 
     <groupId>com.github.mlk</groupId>
     <artifactId>assortmentofjunitrules</artifactId>
-    <version>1.2</version>
+    <version>1.2.1</version>
     <name>AssortmentOfJUnitRules</name>
 
     <description>Useful assortment of JUnit rules for integration testing.</description>

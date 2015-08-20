@@ -16,7 +16,7 @@ in your applications build system.
 <dependency>
   <groupId>com.github.mlk</groupId>
   <artifactId>assortmentofjunitrules</artifactId>
-  <version>1.1</version>
+  <version>1.2.1</version>
 </dependency>
 ```
 
@@ -35,7 +35,7 @@ Maven example:
 
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestSparkRule.java)
 
-## HadoopDFSRule
+## HadoopDFSRule 
 
 Starts up and shuts down a local Hadoop DFS cluster between JUnit tests. Requires [hadoop-minicluster](http://mvnrepository.com/artifact/org.apache.hadoop/hadoop-minicluster).
 
@@ -55,6 +55,13 @@ Maven example:
 ```
 
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestHadoopRule.java)
+
+
+## HadoopYarnRule 
+
+Starts up and shuts down a local Hadoop DFS and YARN cluster between JUnit tests. Requires [hadoop-minicluster](http://mvnrepository.com/artifact/org.apache.hadoop/hadoop-minicluster).
+
+[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestHadoopYarnRule.java)
 
 ## MongoRule
 
