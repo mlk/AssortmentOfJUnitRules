@@ -77,3 +77,7 @@ Maven Example:
 ```
 
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestMongoRule.java)
+
+## VagrantRule
+
+Very simplistic implementation of Vagrant rule. Just starts up and shutdowns a Vagrant instance. This needs Vagrant to be installed locally.
