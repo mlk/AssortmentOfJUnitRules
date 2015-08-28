@@ -5,7 +5,7 @@ import org.hamcrest.Matcher;
 
 public class HadoopMatchers {
 
-    public static Matcher<HadoopDFSRule> hasFile(String file) {
-        return new HadoopFileExists(file);
+    public static Matcher<HadoopDFSRule> exists(String file) {
+        return new HadoopPathExists(file);
     }
 }

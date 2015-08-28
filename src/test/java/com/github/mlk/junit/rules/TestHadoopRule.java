@@ -7,7 +7,6 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.List;
 
-import static com.github.mlk.junit.matchers.HadoopMatchers.hasFile;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -31,24 +30,15 @@ public class TestHadoopRule {
 
     @Test
     public void whenFileDoesNotExistThenReturnFalse() throws IOException {
-        assertThat(subject.exist("/hello.txt"), is(false));
+        assertThat(subject.exists("/hello.txt"), is(false));
     }
 
     @Test
     public void whenFileExistsThenReturnTrue() throws IOException {
         subject.copyResource("/hello.txt", "/testfile.txt");
 
-        assertThat(subject.exist("/hello.txt"), is(true));
+        assertThat(subject.exists("/hello.txt"), is(true));
     }
-
-    @Test
-    public void whenFileExistsTheMatcherAlsoReturnTrue() throws IOException {
-        subject.copyResource("/hello.txt", "/testfile.txt");
-
-        assertThat(subject, hasFile("/hello.txt"));
-    }
-
-
 
     @Test
     public void testRead() throws IOException {

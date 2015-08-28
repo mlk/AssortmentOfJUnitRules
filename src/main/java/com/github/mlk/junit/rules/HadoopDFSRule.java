@@ -100,15 +100,37 @@ public class HadoopDFSRule extends ExternalResource {
         return new String(content);
     }
 
-    /** Checks if the given file exists on Hadoop.
+    /** Checks if the given path exists on Hadoop.
+     *
+     * @param filename Filename to check
+     * @return true if the file exists
+     * @throws IOException
+     * @deprecated Badily named, use exists instead
+     */
+    @Deprecated
+    public boolean exist(String filename) throws IOException {
+        return  exists(filename);
+    }
+
+    /** Checks if the given path exists on Hadoop.
      *
      * @param filename Filename to check
      * @return true if the file exists
      * @throws IOException
      */
-    public boolean exist(String filename) throws IOException {
+    public boolean exists(String filename) throws IOException {
+        return exists(new Path(filename));
+    }
+
+    /** Checks if the given path exists on Hadoop.
+     *
+     * @param filename Filename to check
+     * @return true if the file exists
+     * @throws IOException
+     */
+    public boolean exists(Path filename) throws IOException {
         try {
-            return getMfs().listFiles(new Path(filename), true).hasNext();
+            return getMfs().listFiles(filename, true).hasNext();
         } catch (FileNotFoundException e) {
             return false;
         }
