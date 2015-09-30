@@ -77,3 +77,6 @@ Maven Example:
 ```
 
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestMongoRule.java)
+
+
+[![Build Status](https://travis-ci.org/mlk/AssortmentOfJUnitRules.svg)](https://travis-ci.org/mlk/AssortmentOfJUnitRules)
