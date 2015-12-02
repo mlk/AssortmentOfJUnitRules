@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+
+  config.vm.define "box1" do |box|
+    box.vm.box = "ubuntu/trusty64"
+
+    box.vm.provision "shell", inline: <<-SHELL
+       apt-get update
+       apt-get install -y apache2
+       service apache2 start
+    SHELL
+    box.vm.network "forwarded_port", guest: 80, host: 8481
+  end
+
+  config.vm.define "box2" do |box|
+    box.vm.box = "ubuntu/trusty64"
+
+    box.vm.provision "shell", inline: <<-SHELL
+       apt-get update
+       apt-get install -y apache2
+       service apache2 start
+    SHELL
+    box.vm.network "forwarded_port", guest: 80, host: 8482
+  end
+
+end
