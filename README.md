@@ -44,12 +44,12 @@ Maven example:
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
-            <version>2.6.0</version>
+            <version>2.7.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-minicluster</artifactId>
-            <version>2.6.0</version>
+            <version>2.7.1</version>
         </dependency>
 ```
 
@@ -81,3 +81,7 @@ Maven Example:
 ## VagrantRule
 
 Very simplistic implementation of Vagrant rule. Just starts up and shutdowns a Vagrant instance. This needs Vagrant to be installed locally.
+
+
+[![Build Status](https://travis-ci.org/mlk/AssortmentOfJUnitRules.svg)](https://travis-ci.org/mlk/AssortmentOfJUnitRules)
+
