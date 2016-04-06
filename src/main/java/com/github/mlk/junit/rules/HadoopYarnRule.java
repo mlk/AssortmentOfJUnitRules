@@ -4,7 +4,7 @@ import org.apache.hadoop.hdfs.HdfsConfiguration;
 import org.apache.hadoop.yarn.conf.YarnConfiguration;
 import org.apache.hadoop.yarn.server.MiniYARNCluster;
 
-/** Starts and stops a local Hadoop DFS & YARN cluster for integration testing against Hadoop.
+/** Starts and stops a local Hadoop DFS &amp; YARN cluster for integration testing against Hadoop.
  * For an example of it in action see the <a href="http://tinyurl.com/yarnrule">tests for this class.</a>
  */
 public class HadoopYarnRule extends HadoopDFSRule {
