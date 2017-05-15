@@ -55,7 +55,7 @@ public class HadoopDFSRule extends ExternalResource {
      *
      * @param filename    File to be created
      * @param content     The content to write
-     * @throws IOException
+     * @throws IOException Anything.
      */
     public void write(String filename, String content) throws IOException {
         FSDataOutputStream s = getMfs().create(new Path(filename));
@@ -67,7 +67,7 @@ public class HadoopDFSRule extends ExternalResource {
      *
      * @param filename     File to be created
      * @param resource     Resource to copy
-     * @throws IOException
+     * @throws IOException Anything
      */
     public void copyResource(String filename, String resource) throws IOException {
         write(filename, IOUtils.toByteArray(getClass().getResource(resource)));
@@ -77,7 +77,7 @@ public class HadoopDFSRule extends ExternalResource {
      *
      * @param filename    File to be created
      * @param content     The content to write
-     * @throws IOException
+     * @throws IOException Anything
      */
     public void write(String filename, byte[] content) throws IOException {
         FSDataOutputStream s = getMfs().create(new Path(filename));
@@ -89,7 +89,7 @@ public class HadoopDFSRule extends ExternalResource {
      *
      * @param filename    File to read
      * @return            Content of the file
-     * @throws IOException
+     * @throws IOException Anything
      */
     public String read(String filename) throws IOException {
         Path p = new Path(filename);
@@ -104,7 +104,7 @@ public class HadoopDFSRule extends ExternalResource {
      *
      * @param filename Filename to check
      * @return true if the file exists
-     * @throws IOException
+     * @throws IOException Anything
      */
     public boolean exist(String filename) throws IOException {
         try {

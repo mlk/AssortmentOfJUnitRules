@@ -17,10 +17,20 @@ import org.apache.sshd.server.scp.ScpCommandFactory;
 import org.apache.sshd.server.subsystem.sftp.SftpSubsystemFactory;
 import org.junit.rules.ExternalResource;
 
+/** Create an SFTP server running on a random port.
+ * This server runs in a promiscuous mode, accepting any connection with a public key.
+ * TODO:
+ *  - Allow both public key or username/password auth.
+ *  - Allow for custom server key
+ */
 public class SftpRule extends ExternalResource {
   private final Supplier<File> currentFolder;
   private SshServer sshd;
 
+  /** SFTP Server
+   *
+   * @param currentFolder The user home folder for the SFTP server.
+   */
   public SftpRule(Supplier<File> currentFolder) {
     this.currentFolder = currentFolder;
   }
@@ -53,11 +63,18 @@ public class SftpRule extends ExternalResource {
     }
   }
 
-
+  /** The port the server is running on.
+   *
+   * @return The port the server is running on.
+   */
   public int getPort() {
     return sshd.getPort();
   }
 
+  /** The servers public key
+   *
+   * @return The servers public key
+   */
   public PublicKey getPublicKey() {
     return sshd.getKeyPairProvider().loadKeys().iterator().next().getPublic();
   }
