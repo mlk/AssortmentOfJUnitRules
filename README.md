@@ -78,5 +78,22 @@ Maven Example:
 
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestMongoRule.java)
 
+## SftpRule
+
+Uses [Apache Mina SSHd](https://mina.apache.org/sshd-project/) to start up a SFTP
+server before each test and shut it down after each test. Requires [org.apache.sshd.sshd-core](https://mvnrepository.com/artifact/org.apache.sshd/sshd-core)
+
+Maven Example:
+```
+        <dependency>
+            <groupId>org.apache.sshd</groupId>
+            <artifactId>sshd-core</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+```
+
+[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestMongoRule.java)
+
+
 
 [![Build Status](https://travis-ci.org/mlk/AssortmentOfJUnitRules.svg)](https://travis-ci.org/mlk/AssortmentOfJUnitRules)
