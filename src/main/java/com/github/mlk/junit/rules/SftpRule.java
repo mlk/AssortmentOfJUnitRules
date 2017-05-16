@@ -17,17 +17,18 @@ import org.apache.sshd.server.scp.ScpCommandFactory;
 import org.apache.sshd.server.subsystem.sftp.SftpSubsystemFactory;
 import org.junit.rules.ExternalResource;
 
-/** Create an SFTP server running on a random port.
- * This server runs in a promiscuous mode, accepting any connection with a public key.
- * TODO:
- *  - Allow both public key or username/password auth.
- *  - Allow for custom server key
+/**
+ * Create an SFTP server running on a random port. This server runs in a promiscuous mode, accepting
+ * any connection with a public key. TODO: - Allow both public key or username/password auth. -
+ * Allow for custom server key
  */
 public class SftpRule extends ExternalResource {
+
   private final Supplier<File> currentFolder;
   private SshServer sshd;
 
-  /** SFTP Server
+  /**
+   * SFTP Server
    *
    * @param currentFolder The user home folder for the SFTP server.
    */
@@ -39,7 +40,8 @@ public class SftpRule extends ExternalResource {
   protected void before() throws Throwable {
     sshd = SshServer.setUpDefaultServer();
     sshd.setPort(findRandomOpenPortOnAllLocalInterfaces());
-    sshd.setKeyPairProvider(new ClassLoadableResourceKeyPairProvider(getClass().getClassLoader(), "server_key"));
+    sshd.setKeyPairProvider(
+        new ClassLoadableResourceKeyPairProvider(getClass().getClassLoader(), "server_key"));
     sshd.setCommandFactory(new ScpCommandFactory());
     sshd.setSubsystemFactories(Collections.singletonList(new SftpSubsystemFactory()));
     sshd.setUserAuthFactories(Collections.singletonList(new UserAuthPublicKeyFactory()));
@@ -63,7 +65,8 @@ public class SftpRule extends ExternalResource {
     }
   }
 
-  /** The port the server is running on.
+  /**
+   * The port the server is running on.
    *
    * @return The port the server is running on.
    */
@@ -71,7 +74,8 @@ public class SftpRule extends ExternalResource {
     return sshd.getPort();
   }
 
-  /** The servers public key
+  /**
+   * The servers public key
    *
    * @return The servers public key
    */

@@ -22,11 +22,12 @@ import org.junit.rules.RuleChain;
 import org.junit.rules.TemporaryFolder;
 
 public class TestSftpRule {
+
   private TemporaryFolder sftpHome = new TemporaryFolder();
   public SftpRule subject = new SftpRule(sftpHome::getRoot);
 
   @Rule
-  public RuleChain chain= RuleChain.outerRule(sftpHome).around(subject);
+  public RuleChain chain = RuleChain.outerRule(sftpHome).around(subject);
   @Rule
   public TemporaryFolder local = new TemporaryFolder();
 
@@ -105,7 +106,7 @@ public class TestSftpRule {
       ssh.disconnect();
     }
 
-
-    assertThat(FileUtils.readFileToString(new File(local.getRoot(), "fred.txt")), is("Electric boogaloo"));
+    assertThat(FileUtils.readFileToString(new File(local.getRoot(), "fred.txt")),
+        is("Electric boogaloo"));
   }
 }

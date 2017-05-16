@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 
 public class Helper {
-  private Helper() {}
+
+  private Helper() {
+  }
 
   public static int findRandomOpenPortOnAllLocalInterfaces() throws IOException {
     try (ServerSocket socket = new ServerSocket(0)) {

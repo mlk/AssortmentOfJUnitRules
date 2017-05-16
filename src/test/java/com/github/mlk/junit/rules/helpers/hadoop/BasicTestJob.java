@@ -10,21 +10,22 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 
 public class BasicTestJob extends Configured implements Tool {
-    @Override
-    public int run(String... args) throws Exception {
-        Job job = Job.getInstance(getConf(), "BasicTestJob");
-        TextInputFormat.addInputPath(job, new Path(args[0]));
-        job.setInputFormatClass(TextInputFormat.class);
 
-        job.setMapperClass(WordCounterMapper.class);
-        job.setCombinerClass(WordCounterReducer.class);
-        job.setReducerClass(WordCounterReducer.class);
+  @Override
+  public int run(String... args) throws Exception {
+    Job job = Job.getInstance(getConf(), "BasicTestJob");
+    TextInputFormat.addInputPath(job, new Path(args[0]));
+    job.setInputFormatClass(TextInputFormat.class);
 
-        TextOutputFormat.setOutputPath(job, new Path(args[1]));
-        job.setOutputFormatClass(TextOutputFormat.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+    job.setMapperClass(WordCounterMapper.class);
+    job.setCombinerClass(WordCounterReducer.class);
+    job.setReducerClass(WordCounterReducer.class);
 
-        return job.waitForCompletion(true) ? 0 : 1;
-    }
+    TextOutputFormat.setOutputPath(job, new Path(args[1]));
+    job.setOutputFormatClass(TextOutputFormat.class);
+    job.setOutputKeyClass(Text.class);
+    job.setOutputValueClass(IntWritable.class);
+
+    return job.waitForCompletion(true) ? 0 : 1;
+  }
 }
