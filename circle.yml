@@ -1,0 +1,10 @@
+machine:
+  java:
+    version: openjdk8
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./de-secret.sh && ./gradlew uploadArchives closeAndReleaseRepository
+
