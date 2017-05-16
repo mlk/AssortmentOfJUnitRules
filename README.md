@@ -16,7 +16,7 @@ in your applications build system.
 <dependency>
   <groupId>com.github.mlk</groupId>
   <artifactId>assortmentofjunitrules</artifactId>
-  <version>1.2.1</version>
+  <version>1.5.22</version>
 </dependency>
 ```
 
