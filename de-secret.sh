@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl -o secrets.tar.aes ${SECRETS_URL}/secrets.tar.aes
+curl --retry 10 -o secrets.tar.aes ${SECRETS_URL}/secrets.tar.aes
 md5sum secrets.tar.aes
 
 openssl enc -aes-256-cbc -d -in secrets.tar.aes -out secrets.tar -k "${KEY}"
