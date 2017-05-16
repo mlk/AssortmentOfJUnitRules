@@ -14,7 +14,7 @@ mkdir -p ~/.gradle/
 echo "
 signing.keyId=${GPG_KEY_ID}
 signing.password=${GPG_PASSWORD}
-signing.secretKeyRingFile=/home/ubuntu/.gnupg/secring.gpg
+signing.secretKeyRingFile=/home/travis/.gnupg/secring.gpg
 
 ossrhUsername=${OSSRH_USERNAME}
 ossrhPassword=${OSSRH_PASSWORD}
