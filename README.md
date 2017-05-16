@@ -1,5 +1,8 @@
 # AssortmentOfJUnitRules
 
+[![Build Status](https://travis-ci.org/mlk/AssortmentOfJUnitRules.svg)](https://travis-ci.org/mlk/AssortmentOfJUnitRules)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.mlk/assortmentofjunitrules/badge.svg)](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.github.mlk%22%20AND%20a%3A%22assortmentofjunitrules%22)
+
 This is a small selection of useful (for me) rules for building integration tests with Hadoop, Spark and Mongo. 
 These rules can be used together to start up a mini environment required for a test.  
 
@@ -94,6 +97,3 @@ Maven Example:
 
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestSftpRule.java)
 
-
-
-[![Build Status](https://travis-ci.org/mlk/AssortmentOfJUnitRules.svg)](https://travis-ci.org/mlk/AssortmentOfJUnitRules)
