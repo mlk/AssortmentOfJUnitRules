@@ -30,14 +30,14 @@ public class TestHadoopRule {
 
     @Test
     public void whenFileDoesNotExistThenReturnFalse() throws IOException {
-        assertThat(subject.exist("/hello.txt"), is(false));
+        assertThat(subject.exists("/hello.txt"), is(false));
     }
 
     @Test
     public void whenFileExistsThenReturnTrue() throws IOException {
         subject.copyResource("/hello.txt", "/testfile.txt");
 
-        assertThat(subject.exist("/hello.txt"), is(true));
+        assertThat(subject.exists("/hello.txt"), is(true));
     }
 
     @Test
