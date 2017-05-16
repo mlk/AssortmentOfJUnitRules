@@ -8,6 +8,10 @@ md5sum secrets.tar
 
 tar -xf secrets.tar -C ~
 
+echo TESTING
+gpg --list-secret-keys
+ls /home/travis/.gnupg/secring.gpg
+
 mkdir -p ~/.gradle/
 
 
