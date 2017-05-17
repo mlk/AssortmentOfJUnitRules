@@ -18,19 +18,30 @@ public class MongoRule extends ExternalResource {
 
   private MongodExecutable mongodExe;
   private MongodProcess mongod;
-  private final int port;
+  private final int defaultPort;
+  private int currentPort;
 
   /**
-   * @param port The port to run Mongo DB on. Recommendation: Don't use a standard Mongo port
+   * @param port The port to run Mongo DB on. Recommendation: Don't use a standard Mongo port. -1 will use a random port.
    */
   public MongoRule(int port) {
-    this.port = port;
+    this.defaultPort = port;
+  }
+
+  public MongoRule() {
+    defaultPort = -1;
   }
 
   @Override
   public void before() throws Exception {
+    if(defaultPort < 0) {
+      currentPort = Helper.findRandomOpenPortOnAllLocalInterfaces();
+    } else {
+      currentPort = defaultPort;
+    }
+
     MongodStarter runtime = MongodStarter.getDefaultInstance();
-    mongodExe = runtime.prepare(new MongodConfig(Version.V2_3_0, port, Network.localhostIsIPv6()));
+    mongodExe = runtime.prepare(new MongodConfig(Version.V2_3_0, currentPort, Network.localhostIsIPv6()));
     mongod = mongodExe.start();
   }
 
@@ -42,4 +53,7 @@ public class MongoRule extends ExternalResource {
     }
   }
 
+  public int getPort() {
+    return currentPort;
+  }
 }

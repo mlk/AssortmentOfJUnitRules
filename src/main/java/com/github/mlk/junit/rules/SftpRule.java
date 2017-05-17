@@ -19,12 +19,15 @@ import org.junit.rules.ExternalResource;
 
 /**
  * Create an SFTP server running on a random port. This server runs in a promiscuous mode, accepting
- * any connection with a public key. TODO: - Allow both public key or username/password auth. -
- * Allow for custom server key
+ * any connection with a private key.
+ * TODO:
+ * - Allow both public key or username/password auth.
+ * - Allow for custom server key
  */
 public class SftpRule extends ExternalResource {
 
   private final Supplier<File> currentFolder;
+
   private SshServer sshd;
 
   /**
@@ -49,10 +52,10 @@ public class SftpRule extends ExternalResource {
     sshd.setPublickeyAuthenticator(AcceptAllPublickeyAuthenticator.INSTANCE);
     sshd.setHostBasedAuthenticator(new StaticHostBasedAuthenticator(true));
 
-    VirtualFileSystemFactory x = new VirtualFileSystemFactory();
-    x.setDefaultHomeDir(currentFolder.get().toPath());
+    VirtualFileSystemFactory fileSystemFactory = new VirtualFileSystemFactory();
+    fileSystemFactory.setDefaultHomeDir(currentFolder.get().toPath());
 
-    sshd.setFileSystemFactory(x);
+    sshd.setFileSystemFactory(fileSystemFactory);
     sshd.start();
   }
 
@@ -78,8 +81,14 @@ public class SftpRule extends ExternalResource {
    * The servers public key
    *
    * @return The servers public key
+   * @deprecated Badly named, use getHostsPublicKey
    */
+  @Deprecated
   public PublicKey getPublicKey() {
+    return getHostsPublicKey();
+  }
+
+  public PublicKey getHostsPublicKey() {
     return sshd.getKeyPairProvider().loadKeys().iterator().next().getPublic();
   }
 }
