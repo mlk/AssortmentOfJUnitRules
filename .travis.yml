@@ -7,3 +7,6 @@ deploy:
   script: ./deploy.sh
   on:
     branch: master
+cache:
+  directories:
+  - $HOME/.m2
