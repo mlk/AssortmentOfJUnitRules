@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import org.junit.Rule;
 import org.junit.Test;
 
-public class S3MockRuleTest {
+public class TestS3MockRule {
   @Rule
   public S3MockRule subject = new S3MockRuleBuilder()
       .bucket("bucket-name")
