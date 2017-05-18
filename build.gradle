@@ -41,19 +41,27 @@ signing {
 }
 
 dependencies {
-    compileOnly 'org.apache.spark:spark-core_2.11:1.4.1'
-    compileOnly 'org.apache.hadoop:hadoop-client:2.6.0'
-    compileOnly 'org.apache.hadoop:hadoop-minicluster:2.6.0'
+    compileOnly 'org.apache.spark:spark-core_2.11:2.1.1'
+    compileOnly 'org.apache.hadoop:hadoop-client:2.8.0'
+    compileOnly 'org.apache.hadoop:hadoop-minicluster:2.8.0'
     compileOnly 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:1.28'
     compileOnly 'org.mongodb:mongodb-driver:3.0.2'
     compileOnly 'org.apache.sshd:sshd-core:1.4.0'
+    compileOnly 'io.findify:s3mock_2.11:0.2.0'
+    compileOnly 'com.amazonaws:aws-java-sdk-s3:1.11.123'
+    compileOnly 'com.hierynomus:sshj:0.21.1'
 
-    testCompile 'org.apache.spark:spark-core_2.11:1.4.1'
-    testCompile 'org.apache.hadoop:hadoop-client:2.6.0'
-    testCompile 'org.apache.hadoop:hadoop-minicluster:2.6.0'
+    compileOnly "org.projectlombok:lombok:1.16.16"
+
+    testCompile 'org.apache.spark:spark-core_2.11:2.1.1'
+    testCompile 'org.apache.hadoop:hadoop-client:2.8.0'
+    testCompile 'org.apache.hadoop:hadoop-minicluster:2.8.0'
     testCompile 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:1.28'
     testCompile 'org.mongodb:mongodb-driver:3.0.2'
     testCompile 'org.apache.sshd:sshd-core:1.4.0'
+
+    testCompile 'io.findify:s3mock_2.11:0.2.0'
+    testCompile 'com.amazonaws:aws-java-sdk-s3:1.11.123'
 
     testCompile 'com.hierynomus:sshj:0.21.1'
 

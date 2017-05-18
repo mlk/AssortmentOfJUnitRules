@@ -11,8 +11,6 @@ import org.junit.rules.ExternalResource;
 /**
  * Utilizing flapdoodle.embed.mongo, downloads Mongo and runs an instance per test. For an example
  * of it in action see the <a href="httphttp://tinyurl.com/mongorule">tests for this class.</a>
- *
- * TODO: - Use the Random Port thingie.
  */
 public class MongoRule extends ExternalResource {
 

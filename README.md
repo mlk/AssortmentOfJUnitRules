@@ -19,9 +19,10 @@ in your applications build system.
 <dependency>
   <groupId>com.github.mlk</groupId>
   <artifactId>assortmentofjunitrules</artifactId>
-  <version>1.5.22</version>
+  <version>1.5.**</version>
 </dependency>
 ```
+Check above for the most recent release.
 
 ## SparkRule
 
@@ -47,12 +48,12 @@ Maven example:
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
-            <version>2.6.0</version>
+            <version>2.8.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-minicluster</artifactId>
-            <version>2.6.0</version>
+            <version>2.8.0</version>
         </dependency>
 ```
 
@@ -96,4 +97,19 @@ Maven Example:
 ```
 
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestSftpRule.java)
+
+## S3MockRule
+
+Use [S3Mock](https://github.com/findify/s3mock) to create a S3 mock server at before each test and shut it down after each test. Requires [io.findify.s3mock_2.11](https://mvnrepository.com/artifact/io.findify/s3mock_2.11)
+
+Maven Example:
+```
+      <dependency>
+          <groupId>io.findify</groupId>
+          <artifactId>s3mock_2.11</artifactId>
+          <version>0.2.0</version>
+      </dependency>
+```
+
+[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestS3MockRule.java)
 
