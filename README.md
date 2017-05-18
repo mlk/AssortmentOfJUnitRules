@@ -111,5 +111,5 @@ Maven Example:
       </dependency>
 ```
 
-[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestS3MockRule.java)
+[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/S3MockRuleTest.java)
 
