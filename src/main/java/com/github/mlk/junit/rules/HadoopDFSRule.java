@@ -117,7 +117,7 @@ public class HadoopDFSRule extends ExternalResource {
    * @param filename Filename to check
    * @return true if the file exists
    * @throws IOException Anything
-   * @deprecated Badily named, use exists instead
+   * @deprecated Badly named, use exists instead
    */
   @Deprecated
   public boolean exist(String filename) throws IOException {
