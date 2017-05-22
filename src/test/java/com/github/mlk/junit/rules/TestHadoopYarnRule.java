@@ -26,7 +26,7 @@ public class TestHadoopYarnRule {
     int exitCode = job.run("/hello.txt", "/count");
 
     assertThat(exitCode, is(0));
-    assertThat(subject.exist("/count/_SUCCESS"), is(true));
+    assertThat(subject.exists("/count/_SUCCESS"), is(true));
 
     Map<String, Integer> map = toMap(subject.read("/count/part-r-00000"));
     assertThat(map.get("one"), is(1));
