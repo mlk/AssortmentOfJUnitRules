@@ -3,13 +3,12 @@ package com.github.mlk.junit.rules;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import com.github.mlk.junit.rules.helpers.spark.Sum;
-import com.github.mlk.junit.rules.helpers.spark.ToItemCounterPair;
 import java.util.Arrays;
 import java.util.Map;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.junit.Rule;
 import org.junit.Test;
+import scala.Tuple2;
 
 public class TestSparkRule {
 
@@ -24,8 +23,8 @@ public class TestSparkRule {
     JavaSparkContext sc = subject.getContext();
     Map<String, Integer> content = sc
         .parallelize(Arrays.asList("one", "two", "two", "three", "three", "three"))
-        .mapToPair(new ToItemCounterPair())
-        .reduceByKey(new Sum())
+        .mapToPair(s -> new Tuple2<>(s, 1))
+        .reduceByKey((v1, v2) -> v1 + v2)
         .collectAsMap();
 
     assertThat(content.get("one"), is(1));
