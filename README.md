@@ -3,10 +3,10 @@
 [![Build Status](https://travis-ci.org/mlk/AssortmentOfJUnitRules.svg)](https://travis-ci.org/mlk/AssortmentOfJUnitRules)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.mlk/assortmentofjunitrules/badge.svg)](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.github.mlk%22%20AND%20a%3A%22assortmentofjunitrules%22)
 
-This is a small selection of useful (for me) rules for building integration tests with Hadoop, Spark and Mongo. 
+This is a small selection of useful (for me) rules for building integration tests with AWS, Hadoop, Spark and Mongo.
 These rules can be used together to start up a mini environment required for a test.  
 
-The package has only one hard dependency - JUnit. All sub-rules will expect their requirements to be provided. 
+The package has only one hard dependency - JUnit. All sub-rules will expect their requirements to be provided.
 
 Each rule has a JUnit test which also serves as an example. 
 
@@ -112,4 +112,58 @@ Maven Example:
 ```
 
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/S3MockRuleTest.java)
+
+## LocalDynamoDbRule
+
+Uses the [Local Amazon DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html) to create a in-memory, local DynamoDB instance.
+This rule handles all the SQLite native libraries stuff for you.
+
+Maven Example:
+```
+<!--Dependency:-->
+<dependencies>
+    <dependency>
+       <groupId>com.amazonaws</groupId>
+       <artifactId>DynamoDBLocal</artifactId>
+       <version>[1.11,2.0)</version>
+    </dependency>
+</dependencies>
+<!--Custom repository:-->
+<repositories>
+    <repository>
+       <id>dynamodb-local-oregon</id>
+       <name>DynamoDB Local Release Repository</name>
+       <url>https://s3-us-west-2.amazonaws.com/dynamodb-local/release</url>
+    </repository>
+</repositories>
+```
+
+[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/LocalDynamoDbRuleTest.java)
+
+## LocalDynamoDbRule
+
+Uses the [Local Amazon DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html) to create a in-memory, local DynamoDB instance running over HTTP.
+This rule handles all the SQLite native libraries stuff for you.
+
+Maven Example:
+```
+<!--Dependency:-->
+<dependencies>
+    <dependency>
+       <groupId>com.amazonaws</groupId>
+       <artifactId>DynamoDBLocal</artifactId>
+       <version>[1.11,2.0)</version>
+    </dependency>
+</dependencies>
+<!--Custom repository:-->
+<repositories>
+    <repository>
+       <id>dynamodb-local-oregon</id>
+       <name>DynamoDB Local Release Repository</name>
+       <url>https://s3-us-west-2.amazonaws.com/dynamodb-local/release</url>
+    </repository>
+</repositories>
+```
+
+[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/HttpDynamoDbRuleTest.java)
 

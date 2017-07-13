@@ -20,6 +20,9 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven {
+        url = "https://s3-us-west-2.amazonaws.com/dynamodb-local/release"
+    }
 }
 
 task javadocJar(type: Jar) {
@@ -50,6 +53,7 @@ dependencies {
     compileOnly 'io.findify:s3mock_2.11:0.2.0'
     compileOnly 'com.amazonaws:aws-java-sdk-s3:1.11.123'
     compileOnly 'com.hierynomus:sshj:0.21.1'
+    compileOnly 'com.amazonaws:DynamoDBLocal:1.11.0.1'
 
     compileOnly "org.projectlombok:lombok:1.16.16"
 
@@ -64,6 +68,8 @@ dependencies {
     testCompile 'com.amazonaws:aws-java-sdk-s3:1.11.123'
 
     testCompile 'com.hierynomus:sshj:0.21.1'
+
+    testCompile 'com.amazonaws:DynamoDBLocal:1.11.0.1'
 
     compile 'junit:junit:4.12'
 }
