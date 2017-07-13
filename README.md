@@ -76,7 +76,7 @@ Maven Example:
         <dependency>
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
-            <version>1.28</version>
+            <version>2.0.0</version>
         </dependency>
 ```
 
@@ -167,3 +167,30 @@ Maven Example:
 
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/HttpDynamoDbRuleTest.java)
 [Example of it in use](https://github.com/mlk/simples-migrations-dynamodb/tree/master/src/test/java/com/github/mlk/simples/migrations/dynamodb/example)
+
+## PostgresRule
+
+Uses [Embedded PostgreSQL Server](https://github.com/yandex-qatools/postgresql-embedded) to start up a Postgres server during each test.
+
+Maven Example:
+```
+      <dependency>
+          <groupId>ru.yandex.qatools.embed</groupId>
+          <artifactId>postgresql-embedded</artifactId>
+          <version>2.2</version>
+      </dependency>
+```
+
+[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/PostgresRuleTest.java)
+
+
+## Helper Rules
+
+### SpringDatabaseRule
+
+Sets up all the Spring Boot stuff when using Spring Boot and a supported database.
+This must be a `@ClassRule`.
+
+### NativeLibraryRule
+
+Finds native libraries in your classpath and moves them to a single folder. See the DynamoDB rules for an example.

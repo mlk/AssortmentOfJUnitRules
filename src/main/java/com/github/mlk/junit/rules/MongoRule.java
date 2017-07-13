@@ -3,8 +3,11 @@ package com.github.mlk.junit.rules;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import de.flapdoodle.embed.mongo.MongodProcess;
 import de.flapdoodle.embed.mongo.MongodStarter;
-import de.flapdoodle.embed.mongo.config.MongodConfig;
-import de.flapdoodle.embed.mongo.distribution.Version;
+import de.flapdoodle.embed.mongo.config.IMongodConfig;
+import de.flapdoodle.embed.mongo.config.MongodConfigBuilder;
+import de.flapdoodle.embed.mongo.config.Net;
+import de.flapdoodle.embed.mongo.distribution.IFeatureAwareVersion;
+import de.flapdoodle.embed.mongo.distribution.Version.Main;
 import de.flapdoodle.embed.process.runtime.Network;
 import org.junit.rules.ExternalResource;
 
@@ -18,16 +21,18 @@ public class MongoRule extends ExternalResource {
   private MongodProcess mongod;
   private final int defaultPort;
   private int currentPort;
+  private final IFeatureAwareVersion version;
 
   /**
    * @param port The port to run Mongo DB on. Recommendation: Don't use a standard Mongo port. -1 will use a random port.
    */
-  public MongoRule(int port) {
+  public MongoRule(int port, IFeatureAwareVersion version) {
     this.defaultPort = port;
+    this.version = version;
   }
 
   public MongoRule() {
-    defaultPort = -1;
+    this(-1, Main.V2_3);
   }
 
   @Override
@@ -38,8 +43,13 @@ public class MongoRule extends ExternalResource {
       currentPort = defaultPort;
     }
 
+    IMongodConfig mongodConfig = new MongodConfigBuilder()
+        .version(version)
+        .net(new Net("localhost", currentPort, Network.localhostIsIPv6()))
+        .build();
+
     MongodStarter runtime = MongodStarter.getDefaultInstance();
-    mongodExe = runtime.prepare(new MongodConfig(Version.V2_3_0, currentPort, Network.localhostIsIPv6()));
+    mongodExe = runtime.prepare(mongodConfig);
     mongod = mongodExe.start();
   }
 
