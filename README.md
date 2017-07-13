@@ -166,4 +166,4 @@ Maven Example:
 ```
 
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/HttpDynamoDbRuleTest.java)
-
+[Example of it in use](https://github.com/mlk/simples-migrations-dynamodb/tree/master/src/test/java/com/github/mlk/simples/migrations/dynamodb/example)
