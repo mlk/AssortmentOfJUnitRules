@@ -140,7 +140,7 @@ Maven Example:
 
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/LocalDynamoDbRuleTest.java)
 
-## LocalDynamoDbRule
+## HttpDynamoDbRule
 
 Uses the [Local Amazon DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html) to create a in-memory, local DynamoDB instance running over HTTP.
 This rule handles all the SQLite native libraries stuff for you.
