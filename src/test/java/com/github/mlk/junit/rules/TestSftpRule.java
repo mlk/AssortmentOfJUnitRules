@@ -34,7 +34,7 @@ public class TestSftpRule {
   @Test
   public void uploadFile() throws IOException, NoSuchProviderException, NoSuchAlgorithmException {
     final SSHClient ssh = new SSHClient();
-    ssh.addHostKeyVerifier(SecurityUtils.getFingerprint(subject.getPublicKey()));
+    ssh.addHostKeyVerifier(SecurityUtils.getFingerprint(subject.getHostsPublicKey()));
 
     ssh.connect("localhost", subject.getPort());
     try {
@@ -61,7 +61,7 @@ public class TestSftpRule {
     List<RemoteResourceInfo> files;
 
     final SSHClient ssh = new SSHClient();
-    ssh.addHostKeyVerifier(SecurityUtils.getFingerprint(subject.getPublicKey()));
+    ssh.addHostKeyVerifier(SecurityUtils.getFingerprint(subject.getHostsPublicKey()));
 
     ssh.connect("localhost", subject.getPort());
     try {
@@ -88,7 +88,7 @@ public class TestSftpRule {
     FileUtils.write(sftpHome.newFile("fred.txt"), "Electric boogaloo");
 
     final SSHClient ssh = new SSHClient();
-    ssh.addHostKeyVerifier(SecurityUtils.getFingerprint(subject.getPublicKey()));
+    ssh.addHostKeyVerifier(SecurityUtils.getFingerprint(subject.getHostsPublicKey()));
 
     ssh.connect("localhost", subject.getPort());
     try {
