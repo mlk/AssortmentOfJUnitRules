@@ -7,6 +7,8 @@ import org.junit.rules.ExternalResource;
 
 /** Runs a DynamoDB server exposed over HTTP.
  * It handles all the SQLite native libraries stuff for you.
+ *
+ * Heavily inspired by the answers here: https://stackoverflow.com/questions/26901613/easier-dynamodb-local-testing
  */
 public class HttpDynamoDbRule extends ExternalResource {
   private NativeLibraryRule nativeLibraryRule;
