@@ -14,14 +14,16 @@ public class HttpDynamoDbRule extends ExternalResource {
   private NativeLibraryRule nativeLibraryRule;
   private DynamoDBProxyServer server;
   private final int defaultPort;
+  private final boolean useFakeCreds;
   private int port;
 
   public HttpDynamoDbRule() {
-    this(-1);
+    this(-1, true);
   }
 
-  public HttpDynamoDbRule(int defaultPort) {
+  public HttpDynamoDbRule(int defaultPort, boolean useFakeCreds) {
     this.defaultPort = defaultPort;
+    this.useFakeCreds = useFakeCreds;
     nativeLibraryRule = new NativeLibraryRule(Pattern.compile(".*sqlite.*"));
   }
 
@@ -29,6 +31,11 @@ public class HttpDynamoDbRule extends ExternalResource {
   protected void before() throws Throwable {
     nativeLibraryRule.before();
     System.setProperty("sqlite4java.library.path", nativeLibraryRule.getNativeLibrariesFolder().toString());
+
+    if (useFakeCreds) {
+      System.setProperty("aws.accessKeyId", "x");
+      System.setProperty("aws.secretKey", "x");
+    }
 
     if(defaultPort > -1) {
       port = defaultPort;
