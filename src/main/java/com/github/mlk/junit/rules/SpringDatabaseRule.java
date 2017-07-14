@@ -7,8 +7,11 @@ import org.junit.rules.ExternalResource;
  *
  */
 public class SpringDatabaseRule extends ExternalResource {
-  private DatabaseRule databaseRule;
+  private final DatabaseRule databaseRule;
 
+  public SpringDatabaseRule(DatabaseRule databaseRule) {
+    this.databaseRule = databaseRule;
+  }
 
   @Override
   protected void before() throws Throwable {
