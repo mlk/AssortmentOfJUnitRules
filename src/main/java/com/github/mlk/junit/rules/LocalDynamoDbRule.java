@@ -10,7 +10,7 @@ import org.junit.rules.ExternalResource;
  *
  * Heavily inspired by the answers here: https://stackoverflow.com/questions/26901613/easier-dynamodb-local-testing
  */
-public class LocalDynamoDbRule extends ExternalResource {
+public class LocalDynamoDbRule extends ExternalResource implements DynamoDbRule {
 
   private AmazonDynamoDB client;
   private NativeLibraryRule nativeLibraryRule;

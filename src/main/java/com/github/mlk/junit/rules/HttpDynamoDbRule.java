@@ -1,5 +1,8 @@
 package com.github.mlk.junit.rules;
 
+import com.amazonaws.client.builder.AwsClientBuilder;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.local.main.ServerRunner;
 import com.amazonaws.services.dynamodbv2.local.server.DynamoDBProxyServer;
 import java.util.regex.Pattern;
@@ -10,7 +13,7 @@ import org.junit.rules.ExternalResource;
  *
  * Heavily inspired by the answers here: https://stackoverflow.com/questions/26901613/easier-dynamodb-local-testing
  */
-public class HttpDynamoDbRule extends ExternalResource {
+public class HttpDynamoDbRule extends ExternalResource implements DynamoDbRule{
   private NativeLibraryRule nativeLibraryRule;
   private DynamoDBProxyServer server;
   private final int defaultPort;
@@ -25,6 +28,12 @@ public class HttpDynamoDbRule extends ExternalResource {
     this.defaultPort = defaultPort;
     this.useFakeCreds = useFakeCreds;
     nativeLibraryRule = new NativeLibraryRule(Pattern.compile(".*sqlite.*"));
+  }
+
+  public AmazonDynamoDB getClient() {
+    return AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
+        new AwsClientBuilder.EndpointConfiguration(getEndpoint(), "us-west-2"))
+        .build();
   }
 
   @Override
