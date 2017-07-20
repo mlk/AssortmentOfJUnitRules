@@ -2,6 +2,7 @@ package com.github.mlk.junit.rules;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.local.embedded.DynamoDBEmbedded;
+import com.github.mlk.junit.dynamo.DynamoDBClientWithStubbedWaiter;
 import java.util.regex.Pattern;
 import org.junit.rules.ExternalResource;
 
@@ -13,14 +14,20 @@ import org.junit.rules.ExternalResource;
 public class LocalDynamoDbRule extends ExternalResource implements DynamoDbRule {
 
   private AmazonDynamoDB client;
-  private NativeLibraryRule nativeLibraryRule;
-
-  public AmazonDynamoDB getClient() {
-    return client;
-  }
+  private final NativeLibraryRule nativeLibraryRule;
 
   public LocalDynamoDbRule() {
     nativeLibraryRule = new NativeLibraryRule(Pattern.compile(".*sqlite.*"));
+  }
+
+  /** This returns the client returned by the local Amazon DynamoDB server.
+   * You may wish to wrap this with the DynamoDBClientWithStubbedWaiter.
+   *
+   * @see DynamoDBClientWithStubbedWaiter
+   * @return A Amazon DynamoDB client.
+   */
+  public AmazonDynamoDB getClient() {
+    return client;
   }
 
   @Override
