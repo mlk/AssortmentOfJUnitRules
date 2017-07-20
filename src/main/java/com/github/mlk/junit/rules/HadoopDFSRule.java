@@ -128,6 +128,7 @@ public class HadoopDFSRule extends ExternalResource {
    * Checks if the given path exists on Hadoop.
    *
    * @param filename Filename to check
+   * @throws IOException Anything
    * @return true if the file exists
    */
   public boolean exists(String filename) throws IOException {
@@ -138,6 +139,7 @@ public class HadoopDFSRule extends ExternalResource {
    * Checks if the given path exists on Hadoop.
    *
    * @param filename Filename to check
+   * @throws IOException Anything
    * @return true if the file exists
    */
   public boolean exists(Path filename) throws IOException {

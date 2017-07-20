@@ -24,7 +24,10 @@ public class MongoRule extends ExternalResource {
   private final IFeatureAwareVersion version;
 
   /**
-   * @param port The port to run Mongo DB on. Recommendation: Don't use a standard Mongo port. -1 will use a random port.
+   * @param port The port to run Mongo DB on. Recommendation: Don't use a standard Mongo port. -1
+   *             will use a random port.
+   * @param version The version of Mongo to use. Defaults to V2_3. Not because V2_3 is awesome, but
+   *                because that was the newest when the rule was created.
    */
   public MongoRule(int port, IFeatureAwareVersion version) {
     this.defaultPort = port;
