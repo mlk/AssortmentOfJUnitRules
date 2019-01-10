@@ -55,6 +55,7 @@ dependencies {
     compileOnly 'com.hierynomus:sshj:0.21.1'
     compileOnly 'com.amazonaws:DynamoDBLocal:1.11.0.1'
     compileOnly 'ru.yandex.qatools.embed:postgresql-embedded:2.2'
+    compileOnly 'pl.allegro.tech:embedded-elasticsearch:2.7.0'
 
     compileOnly "org.projectlombok:lombok:1.16.16"
 
@@ -70,7 +71,11 @@ dependencies {
     testCompile 'com.amazonaws:DynamoDBLocal:1.11.0.1'
     testCompile 'ru.yandex.qatools.embed:postgresql-embedded:2.2'
     testCompile 'org.postgresql:postgresql:9.4.1212'
+    testCompile 'pl.allegro.tech:embedded-elasticsearch:2.7.0'
 
+    testCompile 'org.elasticsearch:elasticsearch:6.0.0'
+    testCompile "org.elasticsearch.client:elasticsearch-rest-high-level-client:6.1.2"
+    
     compile 'junit:junit:4.12'
 }
 

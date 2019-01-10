@@ -184,6 +184,24 @@ Maven Example:
 [Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/PostgresRuleTest.java)
 
 
+## ElasticSearchRule
+
+Uses [Embedded ElasticSearch](https://github.com/allegro/embedded-elasticsearch) to start up a ElasticSearch server during each test.
+
+Maven Example:
+```
+    <dependency>
+        <groupId>pl.allegro.tech</groupId>
+        <artifactId>embedded-elasticsearch</artifactId>
+        <version>2.7.0</version>
+        <scope>test</scope>
+    </dependency>
+```
+
+[Example](https://github.com/mlk/AssortmentOfJUnitRules/blob/master/src/test/java/com/github/mlk/junit/rules/TestElasticSearcjRule.java)
+
+
+
 ## Helper Rules
 
 ### SpringDatabaseRule
