@@ -209,6 +209,11 @@ Maven Example:
 Sets up all the Spring Boot stuff when using Spring Boot and a supported database.
 This must be a `@ClassRule`.
 
+### SpringElasticSearchRule
+
+Sets up all the Spring Boot stuff when using Spring Boot and a Elastic Search.
+This must be a `@ClassRule`.
+
 ### NativeLibraryRule
 
 Finds native libraries in your classpath and moves them to a single folder. See the DynamoDB rules for an example.
